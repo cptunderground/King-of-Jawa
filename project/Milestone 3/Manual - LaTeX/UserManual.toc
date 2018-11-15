@@ -1,0 +1,8 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Starten von King of Jawa}{3}
+\contentsline {section}{\numberline {2}Commands}{5}
+\contentsline {section}{\numberline {3}Lobby erstellen und joinen}{6}
+\contentsline {section}{\numberline {4}Spielregeln}{7}
+\contentsline {subsection}{\numberline {4.1}Ressourcen}{7}
+\contentsline {subsection}{\numberline {4.2}Mini-Map}{7}
+\contentsline {subsection}{\numberline {4.3}Geb\IeC {\"a}ude}{7}

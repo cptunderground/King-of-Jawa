@@ -1,0 +1,130 @@
+.root {
+  -fx-font-size: 14pt;
+  -fx-font-family: "Calibri";
+  -fx-background-color: #546F84;
+}
+
+.AnchorPane {
+  -fx-font-size: 14pt;
+  -fx-font-family: "Calibri";
+  -fx-background-color: #546F84;
+}
+
+.text-area {
+  text-area-background: rgba(201, 201, 201, 0.4), rgba(201, 201, 201, 0.4);
+}
+
+.text-area .content {
+  -fx-background-color: text-area-background ;
+}
+.text-area {
+  -fx-background-color: text-area-background;
+}
+
+.text-area .scroll-pane {
+  -fx-background-color: text-area-background;
+}
+
+.text-area .scroll-pane .viewport{
+  -fx-background-color: text-area-background;
+}
+
+
+.text-area .scroll-pane .content{
+  -fx-background-color: text-area-background;
+}
+
+.text-field {
+  -fx-background-color: rgba(201, 201, 201, 0.5), rgba(201, 201, 201, 0.5);
+  -fx-text-fill: black;
+}
+
+.button {
+  -fx-background-color: #546F84;
+  -fx-font-size: 12pt;
+  -fx-font-family: "Calibri";
+  -fx-text-fill: white;
+}
+
+.button:hover {
+  -fx-background-color: #34495E;
+  -fx-font-size: 12pt;
+  -fx-font-family: "Calibri";
+  -fx-background-radius: 0;
+  -fx-border-radius: 0;
+}
+.button:focused {
+  -fx-background-color: #34495E;
+  -fx-font-size: 12pt;
+  -fx-font-family: "Calibri";
+  -fx-background-radius: 0;
+  -fx-border-radius: 0;
+}
+
+.table-view {
+  -fx-background-color: #546F84;
+}
+
+
+.table-view:focused {
+  -fx-background-color: transparent;
+}
+
+.table-view .column-header-background {
+  -fx-background-color: #546F84;
+}
+
+.table-view .column-header-background .label {
+  -fx-background-color: transparent;
+  -fx-text-fill: white;
+}
+
+.table-view .column-header {
+  -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+  -fx-alignment: CENTER-LEFT;
+}
+
+.table-view .table-column{
+  -fx-alignment: CENTER-LEFT;
+}
+
+.table-view .table-cell {
+  -fx-text-fill: white;
+}
+
+.table-view .filler{
+  -fx-background-color: #546F84;
+}
+
+.table-row-cell {
+  -fx-background-color: #546F84;
+  -fx-table-cell-border-color: #546F84;
+}
+
+.table-row-cell:selected {
+  -fx-background-color: #34495E;
+}
+
+.table-row-cell:hover {
+  -fx-border-color: #34495E;
+}
+
+.table-view *.scroll-bar:horizontal *.increment-button,
+.table-view *.scroll-bar:horizontal *.decrement-button {
+  -fx-background-color: #34495E;
+}
+
+.table-view *.scroll-bar:horizontal *.increment-arrow,
+.table-view *.scroll-bar:horizontal *.decrement-arrow {
+  -fx-background-color: #34495E;
+}
+
+.buttonaa {
+  -fx-background-color: #546F84;
+  -fx-font-size: 18pt;
+  -fx-font-family: "Calibri";
+  -fx-text-fill: white;
+}

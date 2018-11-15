@@ -1,0 +1,96 @@
+\documentclass{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+
+\usepackage{color}
+
+%% Commands
+\newcommand{\n}{\newline}
+
+\title{Quality Assurance}
+\subtitle{King of Jawa}
+\author{Pascal Bürklin, Isabel Geissmann, Jannik Jaberg, Nikolai Rutz}
+\date{\today}
+\begin{document}
+\maketitle
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{LOGO.png}
+\end{figure}
+
+\section{Overview}
+Oberstes Ziel unseres Projekts ist unsere Idee von King of Jawa in ein funktionierendes und flüssig laufendes Spiel umzusetzen. Um dies zu garantieren steht das Merkmal der Funktionalität über allen andere.  Desweiteren ist die Idee eines Aufbauspiels bis ins unvorstellbare ausdehnbar, deswegen setzen wir uns als zweites Merkmal die Änderbarkeit. Das Kommunikationsprotokoll ist dem bereits zuvorgekommen und lässt uns neue Packages und Kommunikationsfunktionen mittels relativ einfacher Implementierung dem Spiel hinzufügen ohne dabei den bereits entwickelten Code gross abändern zu müssen. 
+
+\section{Funktionalität}
+
+\subsection{Richtigkeit}
+\label{sec:Richtigkeit}
+
+Um die Richtigkeit von King of Jawa zu garantieren setzen wir uns als Ziel keine ‘ungenauen’ Berechnungen zu machen. Weiter sollen Rechenschritte in ihre eigenen Methoden ausgelagert werden um zu vermeiden dass lange Berechnungen den Aufnahmerahmen eines Developers zu sprengen. Messbar machen wir dies mittels dem Mantis-Bugtracker, welchen Pascal auf seiner Website aufgesetzt hat. Uns ist es wichtig dass wir jeden Bug bis zu seinem gesetzten Due-Date fixen oder zumindest bearbeiten. Bei gravierenden Bugs wollen wir höchstens 2 Tage warten bis zum Fix. 
+
+\subsection{Angemessenheit}
+Weiter ist die Angemessenheit ein wichtiger Punkt der Funktionalität. Da manchmal eine Abschätzung, ob ein Algorithmus sinnvoll oder nicht ist, ist  für uns zu diesem Zeitpunkt noch schwierig, wollen wir dennoch dies als Nebenziel setzen, die Implementierten Algorithmen und/oder Datenstrukturen zu reflektieren und zu entscheiden, ob diese im entsprechenden Konsens angemessen sind. Was jedoch sinnvoll, machbar und konsequent messbar ist, ist Spaghetti-Code zu vermeiden. Deshalb haben wir uns dafür entschieden Methoden mit über 50 Zeilen in weitere Untermethoden abzukapseln. Dies sollte Verständlichkeit und Übersichtlichkeit stark fördern. Die Ausnahme bestätigt die Regel: Klar ist dies nicht zu 100\% umsetzbar - es gibt immer Ausnahmen wie beispielsweise run() Methoden, welche trotz über 50 Zeilen immer noch übersichtlich sein können. Deshalb setzen wir uns als Mass ungefähr 90\% der Methoden 50 Zeilen nicht überschreiten dürfen.
+
+\subsection{Sicherheit}
+Um Spass am Spiel zu garantieren ist die Sicherheit ein weiterer Kernpunkt den QAs. Messbar ist dies nicht wirklich, jedoch probieren wir allfällige Sicherheitslücken im Code, die durch Injection exploited werden können zu minimieren. Beispielsweise wird bei einer removeRequest für eine Lobby dir Socket des Owners und der Socket des Clients, der die Request gesendet hat, verglichen um sicherzugehen, dass nicht ein anderer Client Lobbies schliessen kann.
+
+\section{Änderbarkeit}
+\subsection{Modifizierbarkeit}
+Wie bereits im Overview erwähnt ist die Spielidee von King of Jawa beliebig erweiterbar. Deswegen setzen wir uns als weiteres Kernmerkmal die Modifizierbarkeit. Dem haben wir mit unserem Kommunikationsprotokoll bereits  einen fundamentalen Grundbaustein gesetzt. Mit Hilfe eines entity-component-system erreichen wir dies. Messbar ist es ziemlich einfach, nämlich wir haben ein Entity-Component-System oder nicht. 
+
+\subsection{Analysierbarkeit}
+Für die Analyse implementieren wir einen Bugtracker, wie bereits im Punkt \hyperref[sec:Richtigkeit]{2.1 Richtigkeit} beschrieben und einen Debugmode, für Client und Server. Mitlerweile haben wir sogar ein ErrorLog File welches hilft Fehler zu analysieren und auszumertzen.
+
+\section{Rahmenbedingungen}
+\subsection{JavaDoc}
+Der Code wird fortlaufend mit JavaDoc kommentiert.
+Alle Methoden ausser getter und setter müssen eine JavaDoc Beschreibung haben.
+
+\subsection{Style Conventions}
+Der Code Style orientiert sich am Google Java Style Guide. Wir haben die xml-Datei in Intellij und Gradle eingebunden, damit der Code einfach formatieren und überprüfen werden kann.
+
+\subsection{Name Conventions}
+Klassen: CamelCase \n
+Methoden: camelCase \n
+Variablen: camelCase \n
+Paketnamen: klein \n
+Enum: GROSS, Wörter mit \_ trennen \n
+
+\subsection{Unit Test}
+Der Code wird fortlaufend mit Unit Tests überprüft.
+Im Konzept einigten wir uns darauf ,dass jede Klasse die mehr als 100 Zeilen hat, mit Unit Tests überprüft werden muss. Alle Methoden dieser Klassen müssen mit Unit Tests abgedeckt werden. Nach dem Tutorat wurde uns jedoch klar, dass dies nicht umsetzbar ist. Daraufhin überlegten wir uns eine neue Messung. Entschieden haben wir uns dafür, dass wir wichtige Klassen testen. Dazu gehören:
+\begin{itemize}
+	\item Chain
+	\item Serialization
+	\item Package
+	\item PackageManager
+	\item User
+	\item Session
+\end{itemize}  
+
+\subsection{Bugs}
+Alle Bugs die auftreten werden in unserem Bugtracker festgehalten und gemäss Beschreibung im Punkt \hyperref[sec:Richtigkeit]{2.1 Richtigkeit} bearbeitet.
+
+\subsection{Playtesting}
+King of Jawa wird durch eine Testgruppe von 10 Personen getestet. Dafür wird ein Debug Modus implementiert. Dies gibt uns die Möglichkeit die Fehler einfacher nachzustellen um sie danach zu beheben.
+
+\subsection{Log4J}
+Um Error Logs einheitlich anzuzeigen und abzuspeichern verwenden wir Log4J. Da Log4J die am weitesten verbreitete Logging-Library ist, fiel uns die Entscheidung relativ einfach. 
+
+\subsection{CI}
+Auf Grund eines Bonuspunktes hat sich Pascal entschieden das CI Feature auf Git zu benützen. Mit Hilfe von Jan Schönholz hat er die Piplines aufgestzt sodass nach jedem Commit der Build, die JavaDocs, die Tests und unser Style-Check direkt getestet wird.
+
+\end{document}
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="anchorPane" fx:id="introWindow" blendMode="DARKEN" maxHeight="800.0" maxWidth="800.0" minHeight="504.0" minWidth="800.0" prefHeight="504.0" prefWidth="800.0" style="-fx-background-color: #546F84;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="client.ui.controller.IntroController">
+  <children>
+    <ImageView fx:id="logoView" fitHeight="150.0" fitWidth="200.0" layoutX="300.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true" />
+    <Label fx:id="groupName" layoutX="303.0" layoutY="260.0" text="(C) Minions of Jawa">
+      <font>
+        <Font size="23.0" fx:id="x1" />
+      </font>
+    </Label>
+    <Pane fx:id="textPane" focusTraversable="true" layoutX="20.0" layoutY="372.0" prefHeight="31.0" prefWidth="267.0">
+      <children>
+        <Label id="groupName" fx:id="continueText" font="$x1" layoutX="142.0" layoutY="0.0" text="to continue!" textFill="BLACK" />
+        <Label id="groupName" fx:id="keyLabel" font="$x1" layoutX="59.0" layoutY="0.0" text="'SPACE'" textFill="#ff3d00" />
+        <Label id="groupName" font="$x1" layoutX="0.0" layoutY="0.0" text="Press" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

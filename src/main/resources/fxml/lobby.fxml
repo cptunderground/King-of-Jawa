@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #546F84;&#10;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="client.ui.controller.LobbyController">
+  <children>
+    <AnchorPane fx:id="lobbyScreen" disable="false" prefHeight="200.0" prefWidth="200.0" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <AnchorPane prefHeight="186.0" prefWidth="339.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="200.0">
+          <children>
+            <TextField fx:id="chatInput" disable="false" focusTraversable="false" prefHeight="35.0" prefWidth="339.0" style="" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <TextArea fx:id="chatOutput" disable="false" editable="false" focusTraversable="false" prefHeight="141.0" prefWidth="339.0" style="" wrapText="true" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <stylesheets>
+                <URL value="@../css/IngameChat.css" />
+              </stylesheets>
+            </TextArea>
+          </children>
+        </AnchorPane>
+        <Label layoutY="77.0" minHeight="13.0" prefHeight="20.999900000002526" text="HIDINS LOBBY" textFill="WHITE" AnchorPane.leftAnchor="16.0">
+          <font>
+            <Font name="Calibri Bold" size="18.0" fx:id="x1" />
+          </font>
+        </Label>
+        <Label fx:id="player1Name" minHeight="13.0" prefHeight="21.0" text="Player 1" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="176.0">
+          <font>
+            <Font name="Calibri Bold" size="16.0" fx:id="x2" />
+          </font>
+        </Label>
+        <Label fx:id="player2Name" font="$x2" minHeight="13.0" prefHeight="21.0" text="Player 2" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="176.0" />
+        <Label fx:id="player3Name" font="$x2" minHeight="13.0" prefHeight="21.0" text="Player 3" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="203.0" AnchorPane.topAnchor="176.0" />
+        <Label fx:id="player4Name" font="$x2" minHeight="13.0" prefHeight="21.0" text="Player 4" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="299.0" AnchorPane.topAnchor="177.0" />
+        <ImageView fx:id="mapPreviewView" fitHeight="220.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="103.0" AnchorPane.rightAnchor="14.0" />
+        <ImageView fx:id="player1View" fitHeight="48.750030517578125" fitWidth="52.000038146972656" pickOnBounds="true" preserveRatio="false" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="109.0">
+          <image>
+            <Image url="@../img/default-user.png" />
+          </image>
+        </ImageView>
+        <ImageView fx:id="player2View" fitHeight="48.750030517578125" fitWidth="52.000038146972656" pickOnBounds="true" preserveRatio="false" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="109.0">
+          <image>
+            <Image url="@../img/default-user.png" />
+          </image>
+        </ImageView>
+        <ImageView fx:id="player3View" fitHeight="48.750030517578125" fitWidth="52.000038146972656" pickOnBounds="true" preserveRatio="false" AnchorPane.leftAnchor="206.0" AnchorPane.topAnchor="109.0">
+          <image>
+            <Image url="@../img/default-user.png" />
+          </image>
+        </ImageView>
+        <ImageView fx:id="player4View" fitHeight="48.750030517578125" fitWidth="52.000038146972656" pickOnBounds="true" preserveRatio="false" AnchorPane.leftAnchor="301.0" AnchorPane.topAnchor="109.0">
+          <image>
+            <Image url="@../img/default-user.png" />
+          </image>
+        </ImageView>
+        <Button fx:id="goButton" mnemonicParsing="false" text="GO" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+        <ComboBox fx:id="mapSelector" prefHeight="35.0" prefWidth="220.0" promptText="Sebastians Map" AnchorPane.bottomAnchor="63.0" AnchorPane.rightAnchor="14.0">
+          <items>
+            <FXCollections fx:factory="observableArrayList" />
+          </items>
+        </ComboBox>
+        <Button id="goButton" fx:id="backButton" mnemonicParsing="false" text="BACK" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="187.0" />
+        <Button fx:id="settingsButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="69.0" style="" text="SETTINGS" textAlignment="CENTER" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      </children>
+    </AnchorPane>
+    <Button fx:id="homeButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="69.0" style="" text="HOME" textAlignment="CENTER" AnchorPane.leftAnchor="56.0" AnchorPane.topAnchor="0.0" />
+    <Button fx:id="playButton" alignment="BOTTOM_CENTER" contentDisplay="LEFT" minWidth="45.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="56.0" style="" text="PLAY" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+    <Button fx:id="highscoreButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="69.0" style="" text="HIGHSCORE" textAlignment="CENTER" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="0.0" />
+    <Line fx:id="sexySpacerLine" endX="600.0" endY="0.0" startX="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="69.5" />
+  </children>
+  <stylesheets>
+    <URL value="@../css/launcher.css" />
+  </stylesheets>
+</AnchorPane>

@@ -1,0 +1,5 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Protocol Definitions}{3}
+\contentsline {section}{\numberline {2}Protocol Types}{4}
+\contentsline {section}{\numberline {3}Type Executions (Server)}{5}
+\contentsline {section}{\numberline {4}Type Executions (Client)}{8}

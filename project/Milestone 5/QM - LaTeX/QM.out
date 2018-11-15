@@ -1,0 +1,11 @@
+\BOOKMARK [1][-]{section.1}{Richtigkeit}{}% 1
+\BOOKMARK [1][-]{section.2}{Angemessenheit}{}% 2
+\BOOKMARK [1][-]{section.3}{Sicherheit}{}% 3
+\BOOKMARK [1][-]{section.4}{Modifizierbarkeit}{}% 4
+\BOOKMARK [1][-]{section.5}{Analysierbarkeit}{}% 5
+\BOOKMARK [1][-]{section.6}{Rahmenbedingungen}{}% 6
+\BOOKMARK [2][-]{subsection.6.1}{Bugs und Bug Tracker}{section.6}% 7
+\BOOKMARK [2][-]{subsection.6.2}{Unit Tests}{section.6}% 8
+\BOOKMARK [2][-]{subsection.6.3}{Playtesting}{section.6}% 9
+\BOOKMARK [2][-]{subsection.6.4}{CI}{section.6}% 10
+\BOOKMARK [2][-]{subsection.6.5}{Restliche Rahmenbedingungen}{section.6}% 11

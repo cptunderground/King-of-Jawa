@@ -1,0 +1,163 @@
+.root {
+  -fx-font-size: 12pt;
+  -fx-font-family: "Arial";
+  -fx-background-color: #303030;
+}
+
+.button {
+  -fx-background-color: #434343;
+  -fx-text-fill: cornsilk;
+}
+
+.button:hover {
+  -fx-background-color: saddlebrown;
+  -fx-border-radius: 20px;
+}
+
+#sendChat{
+  -fx-background-color: #303030;
+  -fx-text-fill: cornsilk;
+  -fx-border-color: saddlebrown
+}
+
+#sendChat:hover{
+  -fx-background-color: saddlebrown;
+}
+
+.text-area {
+  -fx-background-color: #303030, #303030;
+  -fx-text-fill: cornsilk;
+  -fx-border-color: saddlebrown;
+}
+
+.text-area .content {
+  -fx-background-color: #303030;
+}
+
+.text-area:focused .content {
+  -fx-background-color: #303030;
+}
+
+.table-area *.scroll-bar:vertical *.increment-button,
+.table-area *.scroll-bar:vertical *.decrement-button {
+  -fx-background-color: null;
+  -fx-background-radius: 0;
+  -fx-background-insets: 0;
+  -fx-padding: 0;
+}
+
+.table-area *.scroll-bar:vertical *.increment-arrow,
+.table-area *.scroll-bar:vertical *.decrement-arrow {
+  -fx-background-color: null;
+  -fx-background-radius: 0;
+  -fx-background-insets: 0;
+  -fx-padding: 0;
+  -fx-shape: null;
+}
+
+.text-field {
+  -fx-background-color: #303030;
+  -fx-text-fill: cornsilk;
+  -fx-border-color: saddlebrown;
+}
+
+.table-view {
+  -fx-background-color: #303030;
+  -fx-border-color: saddlebrown;
+}
+
+.table-view:focused {
+  -fx-background-color: transparent;
+}
+
+.table-view .column-header-background {
+  -fx-background-color: #303030;
+}
+
+.table-view .column-header-background .label {
+  -fx-background-color: transparent;
+  -fx-text-fill: cornsilk;;
+}
+
+.table-view .column-header {
+  -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+  -fx-alignment: CENTER-LEFT;
+}
+
+.table-view .table-column{
+  -fx-alignment: CENTER-LEFT;
+}
+
+.table-view .table-cell {
+  -fx-text-fill: cornsilk;
+}
+
+.table-view .filler{
+  -fx-background-color: #303030;
+}
+
+.table-row-cell {
+  -fx-background-color: #303030;
+  -fx-table-cell-border-color: #303030;
+}
+
+.table-row-cell:selected {
+  -fx-background-color: saddlebrown;
+}
+
+.table-row-cell:hover {
+  -fx-border-color: saddlebrown;
+}
+
+.table-view *.scroll-bar:horizontal *.increment-button,
+.table-view *.scroll-bar:horizontal *.decrement-button {
+  -fx-background-color: null;
+  -fx-background-radius: 0;
+  -fx-background-insets: 0;
+  -fx-padding: 0;
+}
+
+.table-view *.scroll-bar:horizontal *.increment-arrow,
+.table-view *.scroll-bar:horizontal *.decrement-arrow {
+  -fx-background-color: null;
+  -fx-background-radius: 0;
+  -fx-background-insets: 0;
+  -fx-padding: 0;
+  -fx-shape: null;
+}
+
+.label{
+  -fx-text-fill: cornsilk;
+}
+
+.combo-box-base {
+  -fx-background-color: #434343;
+  -fx-text-fill: cornsilk;
+}
+
+.combo-box-popup .list-view{
+  -fx-background-color: #434343;
+  -fx-text-fill: cornsilk;
+}
+
+.combo-box .list-cell{
+  -fx-background-color: #434343;
+  -fx-text-fill: cornsilk;
+}
+
+.combo-box-popup .list-view .list-cell:hover{
+  -fx-border-color: saddlebrown;
+}
+
+.combo-box .cell:selected{
+  -fx-text-fill: cornsilk;;
+}
+
+.combo-box .scroll-bar:vertical {
+  -fx-opacity: 0;
+  -fx-pref-width: 0;
+  -fx-padding: 3;
+}

@@ -1,0 +1,12 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{\numberline {1}Starten von King of Jawa}{3}
+\contentsline {section}{\numberline {2}Commands}{5}
+\contentsline {subsection}{\numberline {2.1}Tastenfunktionen}{6}
+\contentsline {section}{\numberline {3}Lobby}{7}
+\contentsline {section}{\numberline {4}Spielregeln}{8}
+\contentsline {subsection}{\numberline {4.1}Ressourcen}{8}
+\contentsline {subsection}{\numberline {4.2}Mini-Map}{8}
+\contentsline {subsection}{\numberline {4.3}Geb\IeC {\"a}ude}{8}
+\contentsline {subsubsection}{\numberline {4.3.1}Base}{9}
+\contentsline {subsubsection}{\numberline {4.3.2}Resourcen-Geb\IeC {\"a}ude}{9}
+\contentsline {subsubsection}{\numberline {4.3.3}Spass-Geb\IeC {\"a}ude}{9}

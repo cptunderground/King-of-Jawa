@@ -1,0 +1,82 @@
+group 'Minions of Java'
+version '0.0.3-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'checkstyle'
+apply plugin: "jacoco"
+apply plugin: 'idea'
+
+checkstyle {
+    toolVersion = '8.5'
+}
+
+def description = """
+   
+    Project: ${project.name}
+    
+    Author(s):  Pascal Bürklin
+                Nikolai Rutz
+                Jannik Jaberg
+                Isabel Geissmann
+"""
+
+//specifies source compatibility to Java 8
+sourceCompatibility = 1.8
+
+
+jacoco {
+    toolVersion = "0.8.1"
+}
+
+//adds maven central as a maven repository
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'org.testfx:testfx-core:4.0.+', 'org.testfx:testfx-junit:4.0.+'
+    testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+
+    compile 'commons-lang:commons-lang:2.6'
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+    }
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    '**/*client/ui**'
+            ])
+        })
+    }
+}
+
+jar {
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    manifest {
+        attributes 'Main-Class': 'shared.Main' // b) Set shared class
+    }
+}
+
+/**
+ * prints projekt description
+ */
+task info {
+    doFirst {
+        println "${description}"
+    }
+}
+
+task ("build-cs108") {
+    doFirst {
+        println "Running custom task for cs108 requirements."
+    }
+
+    finalizedBy clean, jar, javadoc, test
+}
+

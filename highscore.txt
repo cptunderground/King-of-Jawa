@@ -1,0 +1,20 @@
+'head'|{'gameName'|'isabels game','timeNeeded'|'3131000','points'|'313056','winner'|'isabel'}
+'head'|{'gameName'|'pascal game','timeNeeded'|'3131000','points'|'25550','winner'|'marc'}
+'head'|{'gameName'|'timos game','timeNeeded'|'12000','points'|'0','winner'|'isabel'}
+'head'|{'gameName'|'werners game','timeNeeded'|'3131000','points'|'1337','winner'|'Tom Ate'}
+'head'|{'gameName'|'Rekkles*'s game','timeNeeded'|'3131000','points'|'313056','winner'|'Pascal'}
+'head'|{'gameName'|'Hidins lobby','timeNeeded'|'8062','points'|'40','winner'|'Hidin'}
+'head'|{'gameName'|'users lobby','timeNeeded'|'0','points'|'0','winner'|'user'}
+'head'|{'gameName'|'users lobby','timeNeeded'|'1','points'|'0','winner'|'user'}
+'head'|{'gameName'|'users lobby','timeNeeded'|'0','points'|'0','winner'|'user'}
+'head'|{'gameName'|'users lobby','timeNeeded'|'0','points'|'0','winner'|'user'}
+'head'|{'gameName'|'Hidins lobby','timeNeeded'|'14721','points'|'0','winner'|'Hidin'}
+'head'|{'gameName'|'Hidins lobby','timeNeeded'|'42650','points'|'74','winner'|'Hidin'}
+'head'|{'gameName'|'Hidin1s lobby','timeNeeded'|'15748','points'|'40','winner'|'Hidin1'}
+'head'|{'gameName'|'Hidins lobby','timeNeeded'|'16','points'|'0','winner'|'Hidin'}
+'head'|{'gameName'|'Hidinas lobby','timeNeeded'|'9276','points'|'40','winner'|'Hidina'}
+'head'|{'gameName'|'Hidins lobby','timeNeeded'|'22130','points'|'760','winner'|'Hidin'}
+'head'|{'gameName'|'Nikolai Rutz1s lobby','timeNeeded'|'168820','points'|'40','winner'|'Nikolai Rutz'}
+'head'|{'gameName'|'Nikolai Rutzs lobby','timeNeeded'|'118104','points'|'180','winner'|'Nikolai Rutz'}
+'head'|{'gameName'|'Hidins lobby','timeNeeded'|'318348','points'|'158','winner'|'Nikolai Rutz'}
+'head'|{'gameName'|'Nikolai Rutzs lobby','timeNeeded'|'602000','points'|'3004','winner'|'Nikolai Rutz'}

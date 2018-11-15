@@ -1,0 +1,283 @@
+\documentclass{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage{color}
+
+%% Commands
+\newcommand{\n}{\newline}
+
+\title{Protocol}
+\subtitle{King of Jawa}
+\author{Jannik Jaberg}
+\date{\today}
+\begin{document}
+
+\maketitle
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{LOGO.png}
+\end{figure}
+
+\tableofcontents
+
+
+\pagebreak
+\section{Protocol Definitions}
+Our protocol is used as a part of a two dimensional package.The package contains header information (our protocol) and data contents. The header is defined as following:
+
+\begin{center}
+    \begin{tabular}{| p{2cm} | p{10cm} |}
+    \hline
+    header & meaning \\ \hline
+
+    type &  This field describes the package type. A type can be registered inside the Client/Server initialiser and must be bound to a specified manager, which is an singleton instance.\\ \hline
+
+    name & The name describes the specific execution,
+    which should be done. it will be registered inside the manager which is bound to the type and bound to an PackageExecutable - implementing class. \\ \hline
+
+    id &  package id\\ \hline
+
+    \end{tabular}
+
+\end{center}
+\textbf{Example for a chatPackage which changes the user's name:}
+\begin{center}
+    'head'|\{'name'|'setName','type'|'USER','id'|'33'\},'body'|\{'oldName'|'hidin','newName'|'LANLord'\}
+\end{center}
+
+
+\pagebreak
+\section{Protocol Types}
+\begin{itemize}
+    \item Server
+    \begin{itemize}
+		\item CONNECTION
+		\item CHAT
+		\item PING
+		\item HIGHSCORE
+		\item LOBBY
+		\item GAME
+    \end{itemize}
+    \item Client
+    \begin{itemize}
+		\item CONNECTION
+		\item CHAT
+		\item PING
+		\item USER
+		\item HIGHSCORE
+		\item LOBBY
+		\item GAME
+		\item SHAQ
+    \end{itemize}
+\end{itemize}
+
+\pagebreak
+\section{Type Executions (Server)}
+$\bullet$ CONNECTION
+\begin{center}
+    \begin{tabular}{| p{3.1cm} | p{5cm} | p{5.9cm} |}
+        \hline
+        \textbf{name} & \textbf{call-reason} & \textbf{arguments} \\ \hline
+        requestHandshake & a client wants to connect to the server & name : userName \\ \hline
+        onClientQuit & a client closed the game & none \\ \hline
+    \end{tabular}
+\end{center}
+$\bullet$ CHAT
+\begin{center}
+    \begin{tabular}{| p{3.1cm} | p{5cm} | p{5.9cm} |}
+        \hline
+        \textbf{name} & \textbf{call-reason} & \textbf{arguments} \\ \hline
+        sendMessage & a client wants to send a message & 
+        id : the senders userId\n
+        room : the chat-room the message has to be send to\n
+        message : the message content \\ \hline
+    \end{tabular}
+\end{center}
+$\bullet$ PING
+\begin{center}
+    \begin{tabular}{| p{3.1cm} | p{5cm} | p{5.9cm} |}
+        \hline
+        \textbf{name} & \textbf{call-reason} & \textbf{arguments} \\ \hline
+        ping & a client wants to know his ping & recTime : sets the received time\n from the sent time. \\ \hline
+        pong & the answer of a server ping & sentTime : sets the sent time. \\ \hline
+    \end{tabular}
+\end{center}
+$\bullet$ USER
+\begin{center}
+    \begin{tabular}{| p{3.1cm} | p{5cm} | p{5.9cm} |}
+        \hline
+        \textbf{name} & \textbf{call-reason} & \textbf{arguments} \\ \hline
+        none & none & none \\ \hline
+    \end{tabular}
+\end{center}
+
+\newpage
+$\bullet$ LOBBY
+\begin{center}
+    \begin{tabular}{| p{3.1cm} | p{5cm} | p{5.9cm} |}
+        \hline
+        \textbf{name} & \textbf{call-reason} & \textbf{arguments} \\ \hline
+        requestLobbies & a new client connects to the game and requests all existing lobbies & none\\ \hline
+        openLobbies & a client wants to open a new lobby & none \\ \hline
+        removeLobby & a client closed his lobby or disconnected while the game didn't run & lobbyId : the id of the lobby which has to be removed \\ \hline
+        removePlayer-\n FromLobby & removes a player from the lobby & lobbyId : the id of the lobby from which the player has to be removed. \\ \hline
+        joinLobby & execute the joinrequest for a lobby. & lobbyId : the id of the lobby from which the player has to be joined. \\ \hline
+        startLobby & executes a start-request for a lobby. & lobbyId : the id of the lobby, which has to be started. \n lobbyMap : the map, which has to be played. \\ \hline
+        onMapChanged & updates the currently selected map. & lobbyId : the id of the lobby, which map was updated. \n lobbyMap : the map, which has to be played. \\ \hline
+        onStateChange & updates the state of a specific user. & lobbyId : the id of the lobby in which a user changed his state. \\ \hline
+        
+    \end{tabular}
+\end{center}
+
+$\bullet$ HIGHSCORE
+\begin{center}
+    \begin{tabular}{| p{3.1cm} | p{5cm} | p{5.9cm} |}
+        \hline
+        \textbf{name} & \textbf{call-reason} & \textbf{arguments} \\ \hline
+        requestHighscore & a newly connected client wants to receive the highscore & none \\ \hline
+    \end{tabular}
+\end{center}
+\newpage
+$\bullet$ GAME
+\begin{center}
+    \begin{tabular}{| p{3.1cm} | p{5cm} | p{5.9cm} |}
+        \hline
+        \textbf{name} & \textbf{call-reason} & \textbf{arguments} \\ \hline
+        requestBuild & requests a building & BuildingType : type of the building\n
+        tile : the tile the building should be placed \\ \hline
+        mapLoaded & tells the server that the map on the client is loaded & lobby : the game lobby \\ \hline
+        requestBuildingInfo & requests the building-info for a specific building & entityUUID : the uuid of the building, which the info was requested for.\\ \hline
+        requestLevelUp & requests a levelup for a specific building & entityUUID : the uuid of the building the level should be increased for.\\ \hline
+    \end{tabular}
+\end{center}
+
+\pagebreak
+\section{Type Executions (Client)}
+$\bullet$ CONNECTION
+\begin{center}
+    \begin{tabular}{| p{3.1cm} | p{5cm} | p{5.9cm} |}
+        \hline
+        \textbf{name} & \textbf{call-reason} & \textbf{arguments} \\ \hline
+        validateHandshake & the server processed the handshake & outcome : ok $|$ if it's okay \n
+        outcome : failed $|$ if not \\ \hline 
+    \end{tabular}
+\end{center}
+$\bullet$ CHAT
+\begin{center}
+    \begin{tabular}{| p{3.1cm} | p{5cm} | p{5.9cm} |}
+        \hline
+        \textbf{name} & \textbf{call-reason} & \textbf{arguments} \\ \hline
+        sendMessage & a client wants to send a message & 
+        id : the senders userId\n
+        room : the chat-room the message has to be send to\n
+        message : the message content \\ \hline
+
+        directMessage & there is a direct message for this specific client & id : should be none \n
+        message : the direct message \n
+        room : should be none \\ \hline
+
+        roomMessage & a message was sent to a chat-room in which the client is registered & id : should be none \n
+        message : the message \n
+        room : the chat-room the message has to be send to \\ \hline
+
+        privateMessage & a private message was sent to the client & id : should be none \n
+        rId : the receipants id \n
+        message : the message content \n
+        room : none \\ \hline
+    \end{tabular}
+\end{center}
+$\bullet$ PING
+\begin{center}
+    \begin{tabular}{| p{3.1cm} | p{5cm} | p{5.9cm} |}
+        \hline
+        \textbf{name} & \textbf{call-reason} & \textbf{arguments} \\ \hline
+        ping & the server wants to know the ping & none \\ \hline
+        pong & the answer of client ping & none \\ \hline
+    \end{tabular}
+\end{center}
+$\bullet$ USER
+\begin{center}
+    \begin{tabular}{| p{3.1cm} | p{5cm} | p{5.9cm} |}
+        \hline
+        \textbf{name} & \textbf{call-reason} & \textbf{arguments} \\ \hline
+        setName & the player has a new name & oldName : the player's old name \n
+        newName : the player's new name \\ \hline
+
+        addPlayer & a new player has to be added to the local player list & newName : the player's name \n
+        isLocal : a boolean whether the player is the local client \n
+        id : the players id \\ \hline
+
+        removePlayer & a player has to be remved off the local player list & id : the player's id \\ \hline 
+    \end{tabular}
+\end{center}
+$\bullet$ LOBBY
+\begin{center}
+    \begin{tabular}{| p{3.1cm} | p{5cm} | p{5.9cm} |}
+        \hline
+        \textbf{name} & \textbf{call-reason} & \textbf{arguments} \\ \hline
+        createLobby & creates a lobby. & lobbyId : the lobby id. \n lobbyName : the name of the lobby. \n ownerId : the ownerUUid \n userCount : the user-count. \n lobbyState : the lobby-state.\\ \hline
+        synchronizeLobby & creates a lobby. & lobbyId : the lobby id. \n lobbyName : the name of the lobby. \n ownerId : the ownerUUid \n userCount : the user-count. \n lobbyState : the lobby-state.\\ \hline
+        deleteLobby & a lobby closed and has to be removed off the local lobby list & lobbyId : the id of the lobby to be removed \\ \hline
+        onJoin & adds an user to the lobby. & lobbyId : the id of the lobby the user has to be added to. \ joinedUser : the user id of the joined user. \\ \hline
+        onQuit & removes an user from the lobby. & lobbyId : the id of the lobby the user has to be removed from. \ leftUser : the user id of the left user. \\ \hline
+        onStateChange & changes the lobbystate. & lobbyId : the id of the lobby.\n lobbyState : the state of the lobby. \\ \hline
+        onUserStateChange &changes a user state. & lobbyId : the id of the lobby.\n joinedUser : the user the state has changed for. \n userState : the new state. \\ \hline
+        onMapChange & changes the map preview. & lobbyId : the id of the lobby.\n lobbyMap : the new map. \\ \hline
+        
+    \end{tabular}
+\end{center}
+$\bullet$ highscore
+\begin{center}
+    \begin{tabular}{| p{3.1cm} | p{5cm} | p{5.9cm} |}
+        \hline
+        \textbf{name} & \textbf{call-reason} & \textbf{arguments} \\ \hline
+        sendHighscore & at first connection the server sends the highscore & none \\ \hline
+        refreshHighscore & the higscore has to be updated & none \\ \hline
+    \end{tabular}
+\end{center}
+\newpage
+$\bullet$ GAME
+\begin{center}
+    \begin{tabular}{| p{3.1cm} | p{5cm} | p{5.9cm} |}
+        \hline
+        \textbf{name} & \textbf{call-reason} & \textbf{arguments} \\ \hline
+        initGameStart & initiates the game. & mapName : the name of the map \\ \hline
+        updateResources & updates the resources for the client. & res:"resName" : the resource amount. \\ \hline
+        broadcastBuild & broadcasts a build. & buildingPosition:x : the x-position\n
+        buildingPosition:y : the y-position\n 
+        buildingOwner : the owner id. \n
+        buildingClass : the building to be built. \n
+        entityUUid : the buildings uuid. \\ \hline
+        broadcast-\n IslandUpdate & updates an island. & islandId : the island id \n
+        color : the color. \\ \hline
+        sendBuildingInfo & sends the building info for a corresponding building. & currentLevel : the current level of a building. \n
+        upgradeCostCoin : the coin-cost for an upgrade. \n
+        upgradeCostStone : the stone-cost for an upgrade. \n
+        upgradeCostWood : the wood-cost for an upgrade. \n
+        nextLevelIncomeCoin : the income per minute for the next level. \n
+        nextLevelCoinCostPM : the coin-cost per minute for the next level. \n
+        nextLevelIncomeWood : the income per minute for the next level. \n
+        nextLevelIncomeStone : the income per minute for the next level. \n
+        currentIncomeStone : the income per minute for the current level. \n
+        currentIncomeWood : the income per minute for the current level. \n
+        currentIncomeCoin : the income per minute for the current level. \n
+        currentCoinCostPM : the current coin cost per minute. \n
+        maxLevel : the maximum level. \n
+        
+         \\ \hline
+    \end{tabular}
+\end{center}
+
+
+
+
+
+
+\end{document}
